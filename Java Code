@@ -17,7 +17,7 @@ import com.example.android.blackpantherquiz.R;
 public class MainActivity extends AppCompatActivity {
 
 
-    RadioButton q1, q3, q5;
+    RadioButton q1yes, q1no, q3, q5;
     EditText q4;
     CheckBox q2Box1, q2Box2, q2Box3;
     Button submit;
@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        q1 = (RadioButton) findViewById(R.id.yes_radio_button);
-        q1 = (RadioButton) findViewById(R.id.no_radio_button);
+        q1yes = (RadioButton) findViewById(R.id.yes_radio_button);
+        q1no = (RadioButton) findViewById(R.id.no_radio_button);
         q2Box1 = (CheckBox) findViewById(R.id.box1_checkbox);
         q2Box2 = (CheckBox) findViewById(R.id.box2_checkbox);
         q2Box3 = (CheckBox) findViewById(R.id.box3_checkbox);
@@ -40,33 +40,37 @@ public class MainActivity extends AppCompatActivity {
         q5 = (RadioButton) findViewById(R.id.one_radio_button);
         q5 = (RadioButton) findViewById(R.id.two_radio_button);
 
+        
+    @Override public void onClick(View v) {                    
+        
+            int correctAnswers = 0;
 
-        submit = (Button) findViewById(R.id.score);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                int correctAnswers = 0;
-
-                if (q1.isChecked()) {
-                    correctAnswers += 1;
-                }
-                if (q2Box1.isChecked() || q2Box3.isChecked()) {
-                    correctAnswers += 1;
-                }
-                if (q3.isChecked()) {
-                    correctAnswers += 1;
-                }
-                if (q5.isChecked()) {
-                    correctAnswers += 1;
-                }
-
-                String q4Text = q4.getText().toString();
-                if (q4Text.equals(String.valueOf(correctAnswers))) {
-                    correctAnswers += 1;
-                }
-
-                // Show score message as a toast
-                Toast.makeText(getApplicationContext(), "You got " + correctAnswers + "/5 correct!", Toast.LENGTH_LONG).show();
-                // Exit this method early because there's nothing left to do
-                return;
+            if (q1yes.isChecked()) {
+                correctAnswers += 1;
             }
-            });}}
+            if (q2Box1.isChecked() || q2Box3.isChecked()) {
+                correctAnswers += 1;
+            }
+            if (q3.isChecked()) {
+                correctAnswers += 1;
+            }
+            if (q5.isChecked()) {
+                correctAnswers += 1;
+            }
+
+            String q4Text = q4.getText().toString();
+            if (q4Text.equals("Wakanda")) {
+                correctAnswers += 1;
+            }
+            else {
+                correctAnswers = 0;
+            }
+
+            // Show score message as a toast
+            Toast.makeText(getApplicationContext(), "You got " + correctAnswers + "/5 correct!", Toast.LENGTH_LONG).show();
+            // Exit this method early because there's nothing left to do
+            return;
+        }
+
+
+    }}
