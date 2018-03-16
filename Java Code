@@ -40,37 +40,37 @@ public class MainActivity extends AppCompatActivity {
         q5 = (RadioButton) findViewById(R.id.one_radio_button);
         q5 = (RadioButton) findViewById(R.id.two_radio_button);
 
-        
-    @Override public void onClick(View v) {                    
-        
-            int correctAnswers = 0;
 
-            if (q1yes.isChecked()) {
-                correctAnswers += 1;
-            }
-            if (q2Box1.isChecked() || q2Box3.isChecked()) {
-                correctAnswers += 1;
-            }
-            if (q3.isChecked()) {
-                correctAnswers += 1;
-            }
-            if (q5.isChecked()) {
-                correctAnswers += 1;
-            }
+    @Override
+    public void gradeMyQuiz; (View v) {
 
-            String q4Text = q4.getText().toString();
-            if (q4Text.equals("Wakanda")) {
-                correctAnswers += 1;
-            }
-            else {
-                correctAnswers = 0;
-            }
+        int correctAnswers = 0;
 
-            // Show score message as a toast
-            Toast.makeText(getApplicationContext(), "You got " + correctAnswers + "/5 correct!", Toast.LENGTH_LONG).show();
-            // Exit this method early because there's nothing left to do
-            return;
+        if (q1yes.isChecked()) {
+            correctAnswers +=1;
+        }
+        if (q2Box1.isChecked() || q2Box3.isChecked()) {
+            correctAnswers += 1;
+        }
+        if (q3.isChecked()) {
+            correctAnswers += 1;
+        }
+        if (q5.isChecked()) {
+            correctAnswers += 1;
         }
 
+        String q4Text = q4.getText().toString();
+        if (q4Text.equals("Wakanda")) {
+            correctAnswers += 1;
+        }
+        else {
+            correctAnswers = 0;
+        }
+
+        // Show score message as a toast
+        Toast.makeText(getApplicationContext(), "You got" + correctAnswers + "/5 correct!", Toast.LENGTH_LONG).show();
+        //Exit this method early because there's nothing left to do
+       return;
+        }
 
     }}
