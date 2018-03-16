@@ -194,6 +194,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
         android:text="Score"
+        android:onClick="gradeMyQuiz"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>
